@@ -47,6 +47,7 @@
     };
   </script>
 
+    <!-- external -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.4/TweenMax.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/ScrollMagic.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/plugins/debug.addIndicators.min.js"></script>
@@ -83,17 +84,10 @@
   </main>
 
   {% section 'footer' %}
-<script>
-var controller = new ScrollMagic.Controller();
 
-var scene = new ScrollMagic.Scene({
-    triggerElement: "#trigger1",
-    triggerHook: 0,
-    duration: "100%"
-  })
-  .setTween("#logo", {scale: 0.5}) // trigger a TweenMax.to tween
-  .addIndicators({name: "1 (duration: 0)"}) // add indicators (requires plugin)
-  .addTo(controller);
-</script>
+  <!--[if (gt IE 9)|!(IE)]><!--><script src="{{ 'footer.js' | asset_url }}" defer="defer"></script><!--<![endif]-->
+  <!--[if lt IE 9]><script src="{{ 'theme.js' | asset_url }}"></script><![endif]-->
+
+
 </body>
 </html>

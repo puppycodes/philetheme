@@ -4,11 +4,9 @@ html {
   background-color: $color-body;
   height:100%;
   margin:0;
+  font-family: 'Neue Haas Unica Pro';
 }
 
-html>body .content {
-  height:auto;
-}
 
 .page-width {
   @include clearfix();

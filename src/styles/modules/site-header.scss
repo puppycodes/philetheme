@@ -2,3 +2,26 @@
 .site-logo {
   display: block;
 }
+
+.tagline {
+  text-align: center;
+  margin: auto;
+  position: relative;
+  display: none;
+}
+
+.site-nav {
+display: flex;
+align-items: center;
+justify-content: center;
+padding: 0;
+}
+
+ul.site-nav li {
+
+  float: left;
+  position: relative;
+  padding: 10px;
+  list-style-type: none;
+
+}
