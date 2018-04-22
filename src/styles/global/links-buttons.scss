@@ -1,4 +1,7 @@
 /*================ Links & Buttons ================*/
+a {
+  color: #fff;
+}
 .btn {
   @include prefix('user-select', 'none', moz ms webkit spec);
   @include prefix(appearance, none, webkit moz spec);
