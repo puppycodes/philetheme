@@ -2,6 +2,12 @@
 body,
 html {
   background-color: $color-body;
+  height:100%;
+  margin:0;
+}
+
+html>body .content {
+  height:auto;
 }
 
 .page-width {

@@ -1,3 +1,17 @@
-svg {
+.splash {
+  position: relative;
+  top: 0;
+  height: 100vh;
+  width: auto;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+
+svg#logo {
   fill: white;
+  mix-blend-mode: difference;
+  position: fixed;
+  top: 0;
+}
+
 }
