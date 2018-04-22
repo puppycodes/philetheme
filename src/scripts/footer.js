@@ -7,8 +7,8 @@ var shrinkScene = new ScrollMagic.Scene({
     triggerHook: 0,
     duration: "100%"
   })
-  .setTween("#logo", {scale: 0.3}) // trigger a TweenMax.to tween
-  .addIndicators({name: "1 (duration: 0)"}) // add indicators (requires plugin)
+  .setTween("#logo", {scale: 0.3})
+  .addIndicators({name: "shrinkTrigger"})
   .addTo(shrink);
 
 
@@ -16,9 +16,9 @@ var shrinkScene = new ScrollMagic.Scene({
 
   var stickyScene = new ScrollMagic.Scene({
       triggerElement: "#stickyTrigger",
-      triggerHook: 0,
-      offset: -150
+      triggerHook: 0
     })
     .setPin("#stickyNav")
-    .addIndicators({name: "stickyTrigger"}) // add indicators (requires plugin)
+    .setClassToggle("#stickyNav", "stick")
+    .addIndicators({name: "stickyTrigger"})
     .addTo(sticky);
