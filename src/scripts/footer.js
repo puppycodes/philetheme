@@ -18,7 +18,6 @@ var shrinkScene = new ScrollMagic.Scene({
       triggerElement: "#stickyTrigger",
       triggerHook: 0
     })
-    .setPin("#stickyNav")
     .setClassToggle("#stickyNav", "stick")
     .addIndicators({name: "stickyTrigger"})
     .addTo(sticky);

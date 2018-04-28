@@ -11,11 +11,31 @@
 }
 
 .site-nav {
-display: flex;
-align-items: center;
-justify-content: center;
+
 padding: 0;
+opacity: 0;
+transition: all 0.2s ease;
+
+position: fixed;
+top: 125px;
+left: 0;
+right: 0;
+bottom: 0;
+
+display: -webkit-box;
+display: -moz-box;
+display: -ms-flexbox;
+display: -webkit-flex;
+display: flex;
+justify-content: center;
 }
+
+.stick {
+  opacity: 1;
+  transition: all 0.5s ease;
+}
+
+
 
 ul.site-nav li {
 
@@ -29,15 +49,4 @@ ul.site-nav li {
 #stickyTrigger {
 margin-bottom: 20%;
 position: relative;
-}
-
-
-#stickyNav {
-  position: relative;
-}
-
-.stick {
-  width: 309px;
-  margin: auto;
-  transform: none !important;
 }
