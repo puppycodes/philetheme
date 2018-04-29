@@ -21,3 +21,13 @@ var shrinkScene = new ScrollMagic.Scene({
     .setClassToggle("#stickyNav", "stick")
     .addIndicators({name: "stickyTrigger"})
     .addTo(sticky);
+
+    var hideLogo = new ScrollMagic.Controller();
+
+    var hideLogoScene = new ScrollMagic.Scene({
+        triggerElement: "#hideLogo",
+        triggerHook: 0
+      })
+      .setClassToggle("#logo", "hideLogo")
+      .addIndicators({name: "hideLogo"})
+      .addTo(hideLogo);

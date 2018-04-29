@@ -47,9 +47,10 @@ ul.site-nav li {
 }
 
 #stickyTrigger {
-margin-bottom: 20%;
+margin-bottom: 0%;
 position: relative;
 }
+
 
 
 /*================ Mobile ================*/
@@ -58,8 +59,9 @@ position: relative;
 #menuToggle {
   display: block;
   position: fixed;
-  top: 20px;
-  right: 20px;
+  top: 5%;
+  right: 5%;
+  opacity: 0;
 
   z-index: 1;
 
@@ -87,13 +89,13 @@ position: relative;
 
 #menuToggle span {
   display: block;
-  width: 33px;
-  height: 4px;
+  width: 27px;
+  height: 2px;
   margin-bottom: 5px;
   position: relative;
 
-  background: #cdcdcd;
-  border-radius: 3px;
+  background: #fff;
+  border-radius: 0px;
 
   z-index: 1;
 
@@ -122,20 +124,14 @@ position: relative;
           transform-origin: 0% 100%;
 }
 
-/*
- * Transform all the slices of hamburger
- * into a crossmark.
- */
 #menuToggle input:checked ~ span {
   opacity: 1;
   -webkit-transform: rotate(45deg) translate(-2px, -1px);
           transform: rotate(45deg) translate(-2px, -1px);
-  background: #232323;
+  background: #fff;
 }
 
-/*
- * But let's hide the middle one.
- */
+
 #menuToggle input:checked ~ span:nth-last-child(3) {
   opacity: 0;
   -webkit-transform: rotate(0deg) scale(0.2, 0.2);
@@ -158,7 +154,7 @@ position: relative;
   margin: 0;
   padding: 50px;
 
-  background: #ededed;
+  background: #000000b5;
   list-style-type: none;
   -webkit-font-smoothing: antialiased;
   /* to stop flickering of text in safari */
@@ -187,10 +183,13 @@ position: relative;
           transform: none;
 }
 
-#menuToggle {
-  opacity: 0;
-}
 
+
+
+  .hideLogo {
+    opacity: 1;
+    transition: all 0.5s ease;
+  }
 
 
 
@@ -199,6 +198,10 @@ position: relative;
   #menuToggle {
     opacity: 1;
     transition: all 0.2s ease;
+
+    span {
+
+    }
 
     li {
       display: block;
@@ -209,8 +212,10 @@ position: relative;
     display: none;
   }
 
-  .splash svg#logo {
-
+  .hideLogo {
+    opacity: 0;
+    transition: all 0.5s ease;
   }
+
 
 }
