@@ -8,7 +8,7 @@ var shrinkScene = new ScrollMagic.Scene({
     duration: "100%"
   })
   .setTween("#logo", {scale: 0.3})
-  .addIndicators({name: "shrinkTrigger"})
+  // .addIndicators({name: "shrinkTrigger"})
   .addTo(shrink);
 
 
@@ -19,7 +19,7 @@ var shrinkScene = new ScrollMagic.Scene({
       triggerHook: 0
     })
     .setClassToggle("#stickyNav", "stick")
-    .addIndicators({name: "stickyTrigger"})
+    // .addIndicators({name: "stickyTrigger"})
     .addTo(sticky);
 
     var hideLogo = new ScrollMagic.Controller();
@@ -29,5 +29,5 @@ var shrinkScene = new ScrollMagic.Scene({
         triggerHook: 0
       })
       .setClassToggle("#logo", "hideLogo")
-      .addIndicators({name: "hideLogo"})
+      // .addIndicators({name: "hideLogo"})
       .addTo(hideLogo);
