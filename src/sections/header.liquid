@@ -56,11 +56,24 @@
     {% endif %}
 
     <nav role="navigation">
+
+
       <div class="tagline">
          {{ 'tagline.svg' | asset_url | img_tag }}
       </div>
       <ul id="stickyNav" class="site-nav">
-
+        <div id="menuToggle">
+          <input type="checkbox" />
+          <span></span>
+          <span></span>
+          <span></span>
+          <ul id="menu">
+            <a href="#"><li>Home</li></a>
+            <a href="#"><li>About</li></a>
+            <a href="#"><li>Info</li></a>
+            <a href="#"><li>Contact</li></a>
+          </ul>
+        </div>
         {% for link in linklists[section.settings.main_linklist].links %}
           {%- assign child_list_handle = link.title | handleize -%}
           {% if menus[child_list_handle].links != blank %}
