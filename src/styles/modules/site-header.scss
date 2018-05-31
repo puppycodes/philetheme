@@ -7,7 +7,8 @@
   text-align: center;
   margin: auto;
   position: relative;
-  display: none;
+  margin-top: 20%;
+
 }
 
 .site-nav {
@@ -15,7 +16,8 @@
 padding: 0;
 opacity: 0;
 transition: all 0.2s ease;
-
+height: 35px;
+z-index: 999;
 position: fixed;
 top: 125px;
 left: 0;

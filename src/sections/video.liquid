@@ -1,0 +1,19 @@
+
+<div class="video-container">
+<div id="player" data-plyr-provider="vimeo" data-plyr-embed-id="{{ section.settings.video_url }}"></div>
+</div>
+
+
+{% schema %}
+  {
+    "name": "Video",
+    "settings": [
+    {
+      "id": "video_url",
+      "type": "text",
+      "label": "Vimeo ID",
+      "default": "258661517"
+     }
+    ]
+  }
+{% endschema %}

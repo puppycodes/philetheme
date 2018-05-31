@@ -31,3 +31,7 @@ var shrinkScene = new ScrollMagic.Scene({
       .setClassToggle("#logo", "hideLogo")
       // .addIndicators({name: "hideLogo"})
       .addTo(hideLogo);
+
+
+
+const player = new Plyr('#player');
