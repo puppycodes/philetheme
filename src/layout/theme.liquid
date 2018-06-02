@@ -86,9 +86,14 @@
 
   {% section 'header' %}
 
+  {% if template == 'index' %}
+    {% section 'stickers' %}
+  {% endif %}
+
 {% if template == 'index' %}
   {% section 'video' %}
 {% endif %}
+
 
   <main role="main" id="MainContent">
     {{ content_for_layout }}

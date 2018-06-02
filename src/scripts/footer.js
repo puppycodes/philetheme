@@ -33,5 +33,22 @@ var shrinkScene = new ScrollMagic.Scene({
       .addTo(hideLogo);
 
 
+// Reveal Stickers
+
+      var sticker = new ScrollMagic.Controller();
+
+      var stickerScene = new ScrollMagic.Scene({
+          triggerElement: "#stickerTrigger",
+          triggerHook: 0
+        })
+        .setClassToggle("#sticker", "showSticker")
+        // .addIndicators({name: "hideLogo"})
+        .addTo(sticker);
+
+
+
+
+
+
 
 const player = new Plyr('#player');

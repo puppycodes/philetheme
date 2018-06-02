@@ -1,0 +1,37 @@
+#sticker {
+
+  position: fixed;
+  max-width: 100px;
+
+  opacity: 0;
+
+  -webkit-transition: opacity 0.2s ease-in-out;
+-moz-transition: opacity 0.2s ease-in-out;
+transition: opacity 0.2s ease-in-out;
+
+  -webkit-animation:spin 4s linear infinite;
+  -moz-animation:spin 4s linear infinite;
+  animation:spin 4s linear infinite;
+
+}
+
+#sticker.left {
+    top: 45%;
+    z-index: 10;
+    left: 5%;
+}
+
+#sticker.right {
+  top: 15%;
+  z-index: 10;
+  right: 5%;
+}
+
+#sticker.showSticker {
+  opacity: 1;
+}
+
+
+@-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
+@-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
+@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
