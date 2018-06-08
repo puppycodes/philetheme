@@ -1,0 +1,19 @@
+<div class="callout">
+  {{ section.settings.callout }}
+</div>
+
+
+{% schema %}
+  {
+    "name": "Callout",
+    "settings": [
+      {
+        "type": "textarea",
+        "id": "callout",
+        "label": "Callout",
+        "default": "callout text"
+      }
+    ]
+  }
+
+{% endschema %}

@@ -73,6 +73,7 @@
 
 
   {{ content_for_header }}
+
 </head>
 
 <body id="{{ page_title | handle }}" class="template-{{ template.name | handle }}">
@@ -83,23 +84,22 @@
   {% section 'splash' %}
 {% endif %}
 
-
-  {% section 'header' %}
-
-  {% if template == 'index' %}
-    {% section 'stickers' %}
-  {% endif %}
+{% section 'header' %}
 
 {% if template == 'index' %}
-  {% section 'video' %}
+{% section 'stickers' %}
+{% section 'video' %}
 {% endif %}
 
+<!-- <main role="main" id="MainContent"> -->
+{{ content_for_layout }}
+<!-- </main> -->
 
-  <main role="main" id="MainContent">
-    {{ content_for_layout }}
-  </main>
+{% if template == 'index' %}
+{% section 'callout-text' %}
+{% endif %}
 
-  {% section 'footer' %}
+{% section 'footer' %}
 
   <!--[if (gt IE 9)|!(IE)]><!--><script src="{{ 'footer.js' | asset_url }}" defer="defer"></script><!--<![endif]-->
   <!--[if lt IE 9]><script src="{{ 'theme.js' | asset_url }}"></script><![endif]-->
