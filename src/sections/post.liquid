@@ -1,0 +1,108 @@
+<div class="post">
+
+
+
+    <div class="wrapper">
+      <div class="grid-uniform">
+
+        {% case section.blocks.size %}
+          {% when 0 %}
+          {% when 1 %}
+            {% assign column_width = 'text-center' %}
+          {% when 2 %}
+            {% assign column_width = 'post-large--one-half medium--one-half' %}
+          {% when 3 %}
+            {% assign column_width = 'post-large--one-third medium--one-third' %}
+          {% when 4 %}
+            {% assign column_width = 'post-large--one-quarter medium--one-half' %}
+          {% when 5 %}
+            {% assign column_width = 'post-large--one-fifth medium--one-half' %}
+          {% when 6 %}
+            {% assign column_width = 'post-large--one-sixth medium--one-half' %}
+        {% endcase %}
+
+        {% for block in section.blocks %}
+          {% case block.type %}
+
+          {% when 'text' %}
+              <div class="grid__item {{ column_width }}">
+                <div class="alignment {{ block.settings.alignment }}">
+                  <div class="rte">{{ block.settings.richtext }}</div>
+                </div>
+              </div>
+
+            {% when 'social' %}
+              <div class="grid__item {{ column_width }}">
+                <h3 class="h4">{{ 'layout.footer.social_title' | t }}</h3>
+                  {% comment %}
+                    Loop through the social network links
+                  {% endcomment %}
+                  {% include 'social-links' %}
+              </div>
+
+            {% when 'newsletter' %}
+              <div class="grid__item {{ column_width }}">
+                <h3 class="h4">{{ 'layout.footer.newsletter_title' | t }}</h3>
+                <p>{{ 'layout.footer.newsletter_caption' | t }}</p>
+                {% include 'newsletter-form' %}
+              </div>
+
+          {% endcase %}
+        {% endfor %}
+
+      </div>
+    </div>
+</div>
+
+  {% schema %}
+    {
+      "name": "Post",
+      "max_blocks": 20,
+      "blocks": [
+        {
+          "type": "text",
+          "name": "Text",
+          "settings": [
+            {
+              "type": "text",
+              "id": "text-post",
+              "label": "Heading",
+              "default": "Some Text"
+            },
+            {
+              "type": "richtext",
+              "id": "richtext",
+              "label": "Text"
+            },
+            {
+               "type": "radio",
+               "id": "alignment",
+               "options": [
+                  { "value": "left", "label": "Left"},
+                  { "value": "center", "label": "Center"},
+                  { "value": "right", "label": "Right"},
+                  { "value": "full", "label": "Full"}
+               ],
+               "label": "Align"
+            }
+          ]
+        },
+        {
+          "type": "image_picker",
+          "name": "image-post",
+          "limit": 1,
+          "settings": [
+            {
+              "type": "paragraph",
+              "content": "Edit your social settings and accounts in General settings"
+            }
+          ]
+        },
+        {
+          "type": "newsletter",
+          "name": "Newsletter signup",
+          "limit": 1
+        }
+      ]
+    }
+  {% endschema %}
