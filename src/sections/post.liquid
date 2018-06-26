@@ -9,16 +9,6 @@
           {% when 0 %}
           {% when 1 %}
             {% assign column_width = 'text-center' %}
-          {% when 2 %}
-            {% assign column_width = 'post-large--one-half medium--one-half' %}
-          {% when 3 %}
-            {% assign column_width = 'post-large--one-third medium--one-third' %}
-          {% when 4 %}
-            {% assign column_width = 'post-large--one-quarter medium--one-half' %}
-          {% when 5 %}
-            {% assign column_width = 'post-large--one-fifth medium--one-half' %}
-          {% when 6 %}
-            {% assign column_width = 'post-large--one-sixth medium--one-half' %}
         {% endcase %}
 
         {% for block in section.blocks %}
@@ -26,25 +16,24 @@
 
           {% when 'text' %}
               <div class="grid__item {{ column_width }}">
-                <div class="alignment {{ block.settings.alignment }}">
-                  <div class="rte">{{ block.settings.richtext }}</div>
+                <div class="text-post {{ block.settings.alignment-text }}">
+                  <div class="rte">{{ block.settings.text-post }}</div>
                 </div>
               </div>
 
-            {% when 'social' %}
+            {% when 'image_picker' %}
               <div class="grid__item {{ column_width }}">
-                <h3 class="h4">{{ 'layout.footer.social_title' | t }}</h3>
-                  {% comment %}
-                    Loop through the social network links
-                  {% endcomment %}
-                  {% include 'social-links' %}
+                <div class="image-post {{ block.settings.alignment-image }}">
+                  <img src="{{ block.settings.image-post | img_url: '1024x' }}">
+                  <div class="caption">{{ block.settings.image-caption }}</div>
+                </div>
               </div>
 
-            {% when 'newsletter' %}
+            {% when 'Video' %}
               <div class="grid__item {{ column_width }}">
-                <h3 class="h4">{{ 'layout.footer.newsletter_title' | t }}</h3>
-                <p>{{ 'layout.footer.newsletter_caption' | t }}</p>
-                {% include 'newsletter-form' %}
+                <div class="video-post {{ block.settings.alignment-video }}">
+                  <div class="js-player" data-plyr-provider="vimeo" data-plyr-embed-id="{{ block.settings.vimeo-id }}"></div>
+                </div>
               </div>
 
           {% endcase %}
@@ -61,22 +50,22 @@
       "blocks": [
         {
           "type": "text",
-          "name": "Text",
+          "name": "Text Post",
           "settings": [
             {
               "type": "text",
-              "id": "text-post",
+              "id": "text-post-header",
               "label": "Heading",
               "default": "Some Text"
             },
             {
               "type": "richtext",
-              "id": "richtext",
+              "id": "text-post",
               "label": "Text"
             },
             {
                "type": "radio",
-               "id": "alignment",
+               "id": "alignment-text",
                "options": [
                   { "value": "left", "label": "Left"},
                   { "value": "center", "label": "Center"},
@@ -89,19 +78,58 @@
         },
         {
           "type": "image_picker",
-          "name": "image-post",
-          "limit": 1,
+          "name": "Image Post",
           "settings": [
             {
-              "type": "paragraph",
-              "content": "Edit your social settings and accounts in General settings"
+              "type": "image_picker",
+              "id": "image-post",
+              "label": "Image Post"
+            },
+            {
+               "type": "text",
+               "id": "image-caption",
+               "label": "Caption"
+            },
+            {
+               "type": "radio",
+               "id": "alignment-image",
+               "options": [
+                  { "value": "left", "label": "Left"},
+                  { "value": "center", "label": "Center"},
+                  { "value": "right", "label": "Right"},
+                  { "value": "full", "label": "Full"}
+               ],
+               "label": "Align"
             }
           ]
         },
         {
-          "type": "newsletter",
-          "name": "Newsletter signup",
-          "limit": 1
+          "type": "Video",
+          "name": "Video Post",
+          "settings": [
+            {
+              "type": "text",
+              "id": "video-caption",
+              "label": "Caption",
+              "default": "Video Caption"
+            },
+            {
+              "type": "text",
+              "id": "vimeo-id",
+              "label": "Vimeo Id"
+            },
+            {
+               "type": "radio",
+               "id": "alignment-video",
+               "options": [
+                  { "value": "left", "label": "Left"},
+                  { "value": "center", "label": "Center"},
+                  { "value": "right", "label": "Right"},
+                  { "value": "full", "label": "Full"}
+               ],
+               "label": "Align"
+            }
+          ]
         }
       ]
     }

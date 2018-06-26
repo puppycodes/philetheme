@@ -51,4 +51,4 @@ var shrinkScene = new ScrollMagic.Scene({
 
 
 
-const player = new Plyr('#player');
+const players = Array.from(document.querySelectorAll('.js-player')).map(p => new Plyr(p));
